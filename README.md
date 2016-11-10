@@ -23,19 +23,19 @@ You can type `ps` in the command line to see all of the processes that your comp
 
 Then, we learned about **signals**. A signal is a limited way of sending information to a process.
 
-`kill` — Command line utility to send a signal to process
+`kill` — Command line utility to send a signal to process.
 
-> `$ kill <PID>` — Sends signal 15 (SIGTERM) to PID
+> `$ kill <PID>` — Sends signal 15 (SIGTERM), by default, to PID
 
-> `$ kill -<SIGNAL> \<PID>` — Sends SIGNAL to PID
+> `$ kill -<SIGNAL> \<PID>` — Sends specified SIGNAL to PID
 
-`killall` — Sends SIGTERM (or SIGNAL if provided) to all processes with PROCESS as the name
+`killall` — Sends SIGTERM by default, or SIGNAL if specified, to all processes with PROCESS as the name
 
 > `$ killall [-<SIGNAL>] <PROCESS>`
 
 To handle signals in C programs, we use `<signal.h>`
 
-`kill <PID>, <SIGNAL>` — returns 0 on success or -1 (errno) on failure
+`kill (<PID>, <SIGNAL>)` — returns 0 on success or -1 (errno) on failure
 
 EXAMPLE C CODE:
 ```
@@ -43,7 +43,9 @@ static void sighandler (int signo) {
     if (signo == SIGINT)
         printf("Nice try!\n");
 }
+```
 
+```
 int main () {
     signal(SIGINT, sighandler);
     while(1) {
