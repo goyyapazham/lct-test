@@ -17,20 +17,16 @@ Tech News: [How Twitter Shaped The Election](http://www.nytimes.com/2016/11/09/t
 * `pid` 1 is the init process
 * Each entry in the /proc entry is a current `pid`
 
-`getpid()` - `<unistd.h>`
-* returns the current process's `pid`
+`getpid()` - `<unistd.h>`: returns the current process's `pid`
 
-`getppid()` - `<unistd.h>`
-* return the current process's parent's `pid`
+`getppid()` - `<unistd.h>`: return the current process's parent's `pid`
 
 > Then, we learned about **signals**. A signal is a limited way of sending information to a process.
 
 `kill`
 * Command line utility to send a signal to process
 > $kill \<PID\>
-
 Sends signal 15 (SIGTERM) to PID
-
 > $kill -\<SIGNAL\> \<PID\>
 
 Sends SIGNAL to PID
