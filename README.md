@@ -48,9 +48,8 @@ static void sighandler (int signo) {
 ```
 int main () {
     signal(SIGINT, sighandler);
-    while(1) {
+    while(1)
          printf("pid: %d\n", getpid());
-    }
-return 0;
+    return 0;
 }
 ```
