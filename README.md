@@ -29,9 +29,9 @@ Then, we learned about **signals**. A signal is a limited way of sending informa
 
 > `$ kill -<SIGNAL> \<PID>` — Sends specified SIGNAL to PID
 
-`killall` — Sends SIGTERM by default, or SIGNAL if specified, to all processes with PROCESS as the name
+`killall` — Version of `kill`
 
-> `$ killall [-<SIGNAL>] <PROCESS>`
+> `$ killall [-<SIGNAL>] <PROCESS>` — Sends SIGTERM by default, or SIGNAL if specified, to all processes with PROCESS as the name
 
 To handle signals in C programs, we use `<signal.h>`
 
