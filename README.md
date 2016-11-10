@@ -17,16 +17,36 @@ Tech News: [How Twitter Shaped The Election](http://www.nytimes.com/2016/11/09/t
 * `pid` 1 is the init process
 * Each entry in the /proc entry is a current `pid`
 
-`getpid()` - `<unistd.h>`: returns the current process's `pid`
+`getpid()` - `<unistd.h>` — returns the current process's `pid`
 
-`getppid()` - `<unistd.h>`: return the current process's parent's `pid`
+`getppid()` - `<unistd.h>` — return the current process's parent's `pid`
 
 > Then, we learned about **signals**. A signal is a limited way of sending information to a process.
 
 `kill`
 * Command line utility to send a signal to process
-> $kill \<PID\>
+> $ kill \<PID\>
 Sends signal 15 (SIGTERM) to PID
-> $kill -\<SIGNAL\> \<PID\>
-
+> $ kill -\<SIGNAL\> \<PID\>
 Sends SIGNAL to PID
+
+`killall`
+> $ killall [-\<SIGNAL\>] \<PROCESS\>
+* Sends SIGTERM (or SIGNAL if provided) to all processes with PROCESS as the name
+
+> To handle signals in C programs, we use `<signal.h>`
+`kill \<PID\>, \<SIGNAL\>` — returns 0 on success or -1 (errno) on failure
+
+EXAMPLE C CODE:
+> static void sighandler (int signo) {
+>     if (signo == SIGINT)
+>         printf("Nice try!\n");
+> }
+
+> int main () {
+>     signal(SIGINT, sighandler);
+>     while(1) {
+>          printf("pid: %d\n", getpid());
+>     }
+> return 0;
+> }
