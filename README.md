@@ -25,17 +25,13 @@ Tech News: [How Twitter Shaped The Election](http://www.nytimes.com/2016/11/09/t
 
 `kill`
 * Command line utility to send a signal to process
-
-> $ kill \<PID\>
-
+`$ kill \<PID\>`
 Sends signal 15 (SIGTERM) to PID
-
-> $ kill -\<SIGNAL\> \<PID\>
-
+`$ kill -\<SIGNAL\> \<PID\>`
 Sends SIGNAL to PID
 
 `killall`
-> $ killall [-\<SIGNAL\>] \<PROCESS\>
+`$ killall [-\<SIGNAL\>] \<PROCESS\>`
 
 * Sends SIGTERM (or SIGNAL if provided) to all processes with PROCESS as the name
 
