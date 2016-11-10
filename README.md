@@ -38,15 +38,17 @@ Sends SIGNAL to PID
 `kill \<PID\>, \<SIGNAL\>` — returns 0 on success or -1 (errno) on failure
 
 EXAMPLE C CODE:
-> static void sighandler (int signo) {
->     if (signo == SIGINT)
->         printf("Nice try!\n");
-> }
+```
+static void sighandler (int signo) {
+    if (signo == SIGINT)
+        printf("Nice try!\n");
+}
 
-> int main () {
->     signal(SIGINT, sighandler);
->     while(1) {
->          printf("pid: %d\n", getpid());
->     }
-> return 0;
-> }
+int main () {
+    signal(SIGINT, sighandler);
+    while(1) {
+         printf("pid: %d\n", getpid());
+    }
+return 0;
+}
+```
