@@ -6,11 +6,11 @@ Tech News: [How Twitter Shaped The Election](http://www.nytimes.com/2016/11/09/t
 ### AIM: Are your processes running? Then you should go out and catch them!
 
 ### NOTES: 
-> First, we learned about **processes**. Every running program is a process. A process can create a subprocess, but they function exactly the same as regular processes do.
+First, we learned about **processes**. Every running program is a process. A process can create a subprocess, but they function exactly the same as regular processes do.
 
-> A processor can handle 1 process per cycle (per core). "Multitasking" appears to happen because the processor switches between all the active processes quickly. 
+A processor can handle 1 process per cycle (per core). "Multitasking" appears to happen because the processor switches between all the active processes quickly. 
 
-> You can type `ps` in the command line to see all of the processes that your computer is currently running.
+You can type `ps` in the command line to see all of the processes that your computer is currently running.
 
 `pid`
 * Every process has a unique identifier called the PID (Process IDentifier)
@@ -21,24 +21,19 @@ Tech News: [How Twitter Shaped The Election](http://www.nytimes.com/2016/11/09/t
 
 `getppid()` - `<unistd.h>` — return the current process's parent's `pid`
 
-> Then, we learned about **signals**. A signal is a limited way of sending information to a process.
+Then, we learned about **signals**. A signal is a limited way of sending information to a process.
 
-`kill`
-* Command line utility to send a signal to process
+`kill` — Command line utility to send a signal to process
 
-`$ kill <PID>`
-Sends signal 15 (SIGTERM) to PID
+> `$ kill <PID>` — Sends signal 15 (SIGTERM) to PID
 
-`$ kill -<SIGNAL> \<PID>`
-Sends SIGNAL to PID
+> `$ kill -<SIGNAL> \<PID>` — Sends SIGNAL to PID
 
-> `killall`
+`killall` — Sends SIGTERM (or SIGNAL if provided) to all processes with PROCESS as the name
 
-`$ killall [-<SIGNAL>] <PROCESS>`
+> `$ killall [-<SIGNAL>] <PROCESS>`
 
-* Sends SIGTERM (or SIGNAL if provided) to all processes with PROCESS as the name
-
-> To handle signals in C programs, we use `<signal.h>`
+To handle signals in C programs, we use `<signal.h>`
 
 `kill <PID>, <SIGNAL>` — returns 0 on success or -1 (errno) on failure
 
